@@ -10,10 +10,8 @@
 
 
     </head>
-    <h1>COUCOU</h1>
 
-    {{$username}}
-    <strong>{{$motdepasse}}</strong>
+    <h1>Bonjour {{$t}} + {{$e}} = <strong>{{$somme}}</strong></h1>
 
     </body>
 </html>
