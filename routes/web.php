@@ -29,8 +29,20 @@ Route::get('/cats/create', function () {
 });
 
 Route::POST('/cats', function () {
-    dd('coucou');
-    return view('create');
+    $validated = request()->validate([
+       'name' => 'required',
+        'price' => 'required'
+
+    ]);
+    dd('valide');
+    $c = new Cat();
+    $c->price = request('price');
+    $c->name = request('name');
+    $c->desc = request('desc');
+    $c->image = request('image');
+    $c->birth_date = request('birth_date');
+    $c->save();
+    return redirect('/cats/'.$c->id);
 });
 
 
